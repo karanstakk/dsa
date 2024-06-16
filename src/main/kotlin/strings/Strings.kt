@@ -52,3 +52,29 @@ fun firstUniqChar(string: String): Int {
 
     return index
 }
+
+// Is Unique : Chapt:1.1
+
+fun isUnique(str : String) : Boolean {
+
+    if (str.length >128) {
+        return false
+    }
+
+    if (str.isEmpty() || str.length == 1) {
+        return true
+    }
+
+    val boolArray = BooleanArray(128)
+
+    for(char in str) {
+
+        val index = char.code
+        if (boolArray[index]) {
+            return false
+        }
+        boolArray[index] = true
+    }
+
+    return true
+}
